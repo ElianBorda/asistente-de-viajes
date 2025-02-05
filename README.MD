@@ -12,4 +12,33 @@ Para la persona con poco tiempo quienes quieran organizarce para realizar un via
     - Te responde con datos concretos y estructurados.
     - Si le preguntas de temas que exceden su objetivo, para y te pide que le consultes de temas que conoce.
  
-##
+## Empezar a utilizar 
+El bot se puede utilizar tanto local, como desde la siguiente api:
+ `https://asistente-de-viajes.vercel.app/api/chat`
+
+### ¿Donde probar la api?
+Para testear la api se pueden utilizar herramientas como [Insomnia](https://insomnia.rest/) o [Postman](https://www.postman.com/). 
+### ¿Como se utiliza?
+Para trabajar con la api de asistente de viajes, se le debe enviar un body con el siguiente formato.
+
+```json
+{
+    'message': <consulta>
+}
+
+```
+
+**Ejemplo:**
+```json
+{
+    'message': ¿Cómo estará el clima en Buenos Aires, Argentina, dentro de dos días?
+}
+```
+![alt text](imgs/image-1.png)
+![alt text](image.png)
+### 
+
+
+
+
+
