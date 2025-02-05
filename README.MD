@@ -21,22 +21,62 @@ Para testear la api se pueden utilizar herramientas como [Insomnia](https://inso
 ### ¿Como se utiliza?
 Para trabajar con la api de asistente de viajes, se le debe enviar un body con el siguiente formato.
 
-```json
+```js
 {
-    'message': <consulta>
+    "message": "<consulta>"
 }
 
 ```
 
 **Ejemplo:**
-```json
+```js
 {
-    'message': ¿Cómo estará el clima en Buenos Aires, Argentina, dentro de dos días?
+    "message": "¿Cómo estará el clima en Buenos Aires, Argentina, dentro de dos días?"
 }
 ```
 ![alt text](imgs/image-1.png)
 ![alt text](image.png)
-### 
+### Utilizar el bot en local
+Antes de utilizar el asistente en tu maquina tenes que tener en cuenta los siguientes prerrequisitos:
+    
+1. Tener instalado [Node.js]() y [Git]().
+2. Tener una ApiKey de [OpenAI]() y [OpenWeatherMap]().
+
+Una ves conseguidos los prerrequisitos toca clonar el repositorio de la siguiente manera:
+```sh
+git clone https://github.com/ElianBorda/asistente-de-viajes.git
+cd asistente-de-viajes
+npm install
+```
+Despues de clonar y acceder al repositorio, se debe crear un archivo .env para agregar las apikey y la base url de la api de OpenWeatherMap. 
+```js
+API_OPENWHATER = "http://api.openweathermap.org/data/2.5"
+API_OPENWHATER_KEY = "..."
+OPENAI_API_KEY = "..."
+```
+Por ultimo, deben corren la api local de la siguiente forma:
+```sh
+npx tsc
+node dist/app.js
+``` 
+Una ves realizado el ultimo paso, les aparecera el mensaje `Servidor corriendo en http://localhost:3000`:
+ ![alt text](image-1.png)
+
+**Muestra:**
+![alt text](image-2.png)
+![alt text](image-3.png)
+
+### Chatear con el bot
+Si instalas el bot local tenes la opcion de **chatear con el asistente en tiempo real**. Lo unico que se necesita es escribir el siguiente comando:
+
+```sh
+npx tsx src/index.ts
+```
+
+**VIDEO DE MUESTRA:**
+
+
+
 
 
 

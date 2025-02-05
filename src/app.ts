@@ -3,6 +3,7 @@ import Joi from 'joi';
 import { getResponseBot } from './utils/getResponseBot.js';
 import { createGraph } from './graph.js';
 
+process.removeAllListeners('warning');
 const app: Application = express();
 const port = process.env.PORT || 3000;
 
