@@ -27,7 +27,7 @@ Para la persona con poco tiempo quienes quieran organizarce para realizar un via
 3. **Seguimiento contextual**
     - Puede manejar preguntas adicionales sin perder el hilo de la conversación.
     - Te responde con datos concretos y estructurados.
-    - Si le preguntas de temas que exceden su objetivo, para y te pide que le consultes de temas que conoce.
+    - Si le preguntas de temas que exceden su objetivo, te pide que le consultes de temas que conoce.
  
 ## Empezar a utilizar 
 El bot se puede utilizar tanto local, como desde la siguiente api:
