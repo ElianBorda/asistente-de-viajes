@@ -1,8 +1,8 @@
 import { HumanMessage } from "@langchain/core/messages";
 
-export const getResponseBot = async (graph: any, userInput: string) => {
+export const getResponseBot = async (graph: any, userInput: string, thread_id: string = "thread_1") => {
     const input = new HumanMessage(userInput)
-    const configMemory = { configurable: { thread_id: "2"} }
+    const configMemory = { configurable: { thread_id: thread_id} }
     const res = await graph.stream({ message: [ input ] }, { ...configMemory, streamMode: "values",
         })
 

@@ -26,7 +26,10 @@ app.post('/api/chat', (req, res) => {
     res.status(400).json({ error: error.message });
   }
 
-  getResponseBot(graph, value.message).then((response) => {
+  const { thread_id } = req.query;
+  const valThread = thread_id as string;
+
+  getResponseBot(graph, value.message, valThread).then((response) => {
     res.send(response)
   })
   

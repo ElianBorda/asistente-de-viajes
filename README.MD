@@ -12,7 +12,7 @@ Para la persona con poco tiempo quienes quieran organizarce para realizar un via
     - [Chatear con el bot desde terminal](#chatear-con-el-bot-desde-terminal)
 - [Funcionalidades](#funcionalidades)
     - [Persistencia de hilo de conversación](#persistencia-de-hilo-de-conversación).
-    - Cambiar de hilo de conversación.
+    - [Cambiar de hilo de conversación](#cambiar-de-hilo-de-conversación)
     - [Obtener el clima de una ubicación dada una fecha](#obtener-el-clima-de-una-ubicacion-dada-una-fecha).
     - [Obtener el clima de una ubicación dado una cantidad de dias](#obtener-el-clima-de-una-ubicación-dado-una-cantidad-de-dias)
 - [Tecnologias y Librerias](#tecnologias-y-librerias)
@@ -99,6 +99,8 @@ A continuacion se expondra todas las funcionalidades que vuelven particular al a
 ### Persistencia de hilo de conversación
 El Asistente de Viajes tiene la capacidad de persistir el hilo de conversación, esto quiere decir que recuerda los momentos de cada consulta y respuesta que se genero. 
 ![alt text](imgs/image-6.png)
+### Cambiar de hilo de conversación
+
 ### Obtener el clima de una ubicacion dada una fecha.
 Gracias a la Api de OpenWeatherMap puedo consultar el clima de una fecha dada.
 ![alt text](imgs/image-7.png)
