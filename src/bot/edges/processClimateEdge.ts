@@ -2,7 +2,7 @@ import { END } from "@langchain/langgraph";
 import { State } from "../../graph.js";
 
 /**
- * Determinar el tipo de mensaje recibido
+ * Determinar el tipo de mensaje recibido relacionado al tipo de fecha proporcionada.
  * @param state Estado global actual
  * @returns siguiente nodo a procesar
  */

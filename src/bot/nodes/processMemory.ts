@@ -1,7 +1,7 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { State, Update } from "../../graph.js"
 import { z } from "zod";
-import { AIMessage, HumanMessage } from "@langchain/core/messages";
+import { AIMessage } from "@langchain/core/messages";
 
 /**
  * PROPOSITO: Procesar la informacion recibida a traves de los nodos para generar una respuesta amigable y natural en base al historial de la conversacion

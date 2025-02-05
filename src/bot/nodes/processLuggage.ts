@@ -1,7 +1,6 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { State, Update } from "../../graph.js";
 import { z } from "zod";
-import { AIMessage } from "@langchain/core/messages";
 
 /**
  * PROPOSITO: Procesar la informacion recibida a traves de los nodos para generar una respuesta relacionada con el equipaje del usuario. 

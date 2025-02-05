@@ -1,7 +1,6 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { State, Update } from "../../graph.js";
 import { z } from "zod";
-import { HumanMessage } from "@langchain/core/messages";
 
 /**
  * PROPOSITO: Procesar la informacion recibida para identificar el tipo de conversacion y devolver la respuesta en formato JSON con el tipo de conversacion

@@ -3,7 +3,7 @@ import { State, Update } from "../../graph.js";
 import { z } from "zod";
 
 /**
- * PROPOSITO: Procesar la informacion recibida a identificar la cantidad de dias y la localizacion y devolver la respuesta en formato JSON con la localizacion, la fecha y las coordenadas
+ * PROPOSITO: Procesar la informacion recibida para identificar la cantidad de dias y la localizacion y devolver la respuesta en formato JSON con la localizacion, la fecha y las coordenadas
  * @param state Estado global actual
  * @returns respuesta del bot
  */

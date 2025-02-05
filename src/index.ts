@@ -1,5 +1,4 @@
 // Asistente de viajes
-import { HumanMessage } from "@langchain/core/messages";
 import { createGraph } from "./graph.js";
 import dotenv, { config } from 'dotenv';
 import readline from "readline/promises";
