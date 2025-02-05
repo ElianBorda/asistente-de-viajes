@@ -6,7 +6,6 @@ import { z } from "zod";
 export const processClimateApi = async (state: State): Promise<Update> => {
     
     const llm = new ChatOpenAI({ model: "gpt-4o-mini-2024-07-18", temperature: 0, });
-    // llm.bindTools([getClimateTool]);
     const structuredLlm = llm.withStructuredOutput(z.object({
         descWhather: z.string().describe("Description of the climate and temperature of the area"),
     }));
@@ -19,7 +18,10 @@ export const processClimateApi = async (state: State): Promise<Update> => {
             "system",
             `
             You are an expert in climatology, your task will be to generate a report of maximum and minimum temperatures, and a description of the weather during different time periods over the date ${state.climate.date}. The source to extract the data will be provided by the following json: 
-            ${data}
+            
+            ${JSON.stringify(data)}
+            location: ${state.climate.location}
+
 
             The response you should provide should have only the following format:
 
@@ -38,17 +40,15 @@ export const processClimateApi = async (state: State): Promise<Update> => {
             - 06:00 con minimo y maximo de 10°C/15°C. El clima es Nublado.
             `,
         ],
-        ["human", state.message.message],
     ])
     
-
-    console.log(res.descWhather)
-
-
     return {
         climate:{
             ...state.climate,
             info: res.descWhather
-        }
+        },
+        info: {
+            message: res.descWhather,
+        },
     }
 }

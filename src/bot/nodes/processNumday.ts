@@ -39,9 +39,8 @@ export const processNumday = async (state: State): Promise<Update> => {
                 }
             `,
         ],
-        ["human", state.message.message],
+        state.message[state.message.length - 1],
     ])
-    
 
     return {
         climate:{

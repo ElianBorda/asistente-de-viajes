@@ -1,6 +1,7 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { State, Update } from "../../graph.js";
 import { z } from "zod";
+import { AIMessage } from "@langchain/core/messages";
 
 export const processLuggage = async (state: State): Promise<Update> => {
     //TODO esta funcion retorna informacion sobre el equipaje
@@ -11,7 +12,7 @@ export const processLuggage = async (state: State): Promise<Update> => {
     });
 
     const structuredLlm = llm.withStructuredOutput(z.object({
-        desc: z.string().describe("Information regarding luggage and climate"),
+        desc: z.string().describe("Information regarding luggage"),
     }));
 
     const res = await structuredLlm.invoke([
@@ -19,16 +20,18 @@ export const processLuggage = async (state: State): Promise<Update> => {
             "system",
             `You are a luggage expert. In the consultation you identify the destination and generate a basic list of things to take with you, taking into account mainly the travel from one point to the destination or the weather in general.`,
         ],
-        ["human", state.message.message],
+        state.message[state.message.length - 1],
     ])
-
 
     return {
         luggage: {
             userId: "2",
             destination: "Argentina",
             durationTravel: "2 weeks",
-            recommendation: "Recomendation"
+            recommendation: res.desc,
+        },
+        info: {
+            message: res.desc,
         },
     }
 }

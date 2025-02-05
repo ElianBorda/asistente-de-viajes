@@ -3,7 +3,6 @@ import { State, Update } from "../../graph.js";
 import { z } from "zod";
 
 export const processClimate = async (state: State): Promise<Update> => {
-    //TODO esta funcion retorna informacion sobre el equipaje
 
     const llm = new ChatOpenAI({
         model: "gpt-4o-mini-2024-07-18",
@@ -30,7 +29,7 @@ export const processClimate = async (state: State): Promise<Update> => {
             Output: { estimationDate: “Date”}
             `,
         ],
-        ["human", state.message.message],
+        state.message[state.message.length - 1],
     ])
 
 

@@ -9,18 +9,22 @@ import { processNumday } from "./bot/nodes/processNumday.js";
 import { processClimateApi } from "./bot/nodes/processClimateApi.js";
 import { processClimateEdge } from "./bot/edges/processClimateEdge.js";
 import { processMessageEdge } from "./bot/edges/processMessageEdge.js";
+import { BaseMessage } from "@langchain/core/messages";
+import { processResponse } from "./bot/nodes/processResponse.js";
+import { processMemory } from "./bot/nodes/processMemory.js";
 
 type MessegeType = 
     | "Destination"
     | "Luggage"
     | "Climate"
+    | "Memory"
     | "Other";
 
 type EstimationDate = 
     | "Date"
     | "Numday" // numero de dias
     
-type Message = {
+type Information = {
     message: string; 
 };
 
@@ -45,11 +49,12 @@ type Climate = {
     info?: string;
 }
 
-// const memory = new MemorySaver();
+
 
 const graphAnotation = Annotation.Root({
+    message: Annotation<BaseMessage[]>({ reducer: (x, y) => x.concat(y), }),
     messegeType: Annotation<MessegeType>(),
-    message: Annotation<Message>(),
+    info: Annotation<Information>(),
     destination: Annotation<Destination>(),
     luggage: Annotation<Luggage>(),
     climate: Annotation<Climate>(),
@@ -69,35 +74,24 @@ export function createGraph() {
         .addNode("process-date", processDate)
         .addNode("process-numday", processNumday)
         .addNode("process-climate-api", processClimateApi)
-
+        .addNode("process-response", processResponse)
+        .addNode("process-memory", processMemory)
 
         .addEdge(START, "process-message")
         .addEdge("process-other", END)
-        .addEdge("process-destination", END)
-        .addEdge("process-luggage", END)
+        .addEdge("process-destination", "process-response")
+        .addEdge("process-luggage", "process-response")
         .addEdge("process-date", "process-climate-api")
         .addEdge("process-numday", "process-climate-api")
-        .addEdge("process-climate-api", END)
+        .addEdge("process-climate-api", "process-response")
+        .addEdge("process-response", END)
+        .addEdge("process-memory", END)
 
         .addConditionalEdges("process-climate", processClimateEdge)
         .addConditionalEdges("process-message", processMessageEdge);
     
-    const graph = workflow.compile(
-        // { checkpointer: memory}
-    );
+    const memory = new MemorySaver();
+    const graph = workflow.compile({ checkpointer: memory});
 
     return graph
 }
-// const config = { configurable: { thread_id: "2"}, streamMode: "values" as const }
-
-
-// const inputMessage = new HumanMessage("hi! I'm bob");
-
-// for await (const event of await app.stream({
-//     message: [inputMessage]
-// }, config)) {
-//     const recentMsg = event.message[event.message.length - 1];
-//     console.log(`================================ ${recentMsg.constructor.name} Message (1) =================================`)
-//     console.log(recentMsg.content);
-// }
-
