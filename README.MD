@@ -2,7 +2,24 @@
 
 Para la persona con poco tiempo quienes quieran organizarce para realizar un viaje, el Asistente de Viajes es un bot con inteligencia artificial que te ayuda a responder consultas sobre destinos, sus climas y recomendacion de equipaje. Diferente a otros bots cuyo unico trabajo es trabajar solo con apis y sin respuesta en lenguaje humano. 
 
-## Caracteristicas unicas
+## CONTENIDO
+
+- [Caracteristicas únicas](#caracteristicas-unicas)
+- [Empezar a utilizar](#empezar-a-utilizar)
+    - [¿Dónde probar la api?](#donde-probar-la-api)
+    - [¿Cómo se utiliza?](#como-se-utiliza)
+    - [Utilizar bot en local](#utilizar-el-bot-en-local)
+    - [Chatear con el bot desde terminal](#chatear-con-el-bot-desde-terminal)
+- [Pruebas funcionales](#pruebas-funcionales)
+    - Persistencia de hilo de conversación.
+    - Cambiar de hilo de conversación.
+    - Obtener el clima de una ubicacion dada una fecha.
+    - Obtener el clima de una ubicación dado una cantidad de dias
+- Tecnologias y Librerias
+    - Modelo de Grafo
+
+
+## Caracteristicas unicas 
 1. **Respuestas conversacionales**
     - Trabaja con el modelo de LLM `gpt-4o-mini-2024-07-18` para enternder preguntas coloquiales y responder de forma rapida, precisa y amigable.
 2. **Clima en tiempo real** 
@@ -66,7 +83,7 @@ Una ves realizado el ultimo paso, les aparecera el mensaje `Servidor corriendo e
 ![alt text](image-2.png)
 ![alt text](image-3.png)
 
-### Chatear con el bot
+### Chatear con el bot desde terminal
 Si instalas el bot local tenes la opcion de **chatear con el asistente en tiempo real**. Solamente se necesita escribir el siguiente comando:
 
 ```sh
@@ -77,9 +94,29 @@ npx tsx src/index.ts
 ![alt text](image-4.png)
 ![alt text](image-5.png)
 
+## Funcionalidades
+A continuacion se expondra todas las funcionalidades que vuelven particular al asistente. Por comodidad se utilizara la terminal. 
+### Persistencia de hilo de conversación
+El Asistente de Viajes tiene la capacidad de persistir el hilo de conversación, esto quiere decir que recuerda los momentos de cada consulta y respuesta que se genero. 
+![alt text](image-6.png)
+### Obtener el clima de una ubicacion dada una fecha.
+Gracias a la Api de OpenWeatherMap puedo consultar el clima de una fecha dada.
+![alt text](image-7.png)
+### Obtener el clima de una ubicación dado una cantidad de dias
+El asistente conoce el año, mes, dia y horario actual, por lo que no es de suma necesidad pasarle una fecha. A partir de una cantidad de dias y teniendo en cuenta el dia actual, puede determinar la fecha solicitada. 
+![alt text](image-8.png)
+## Tecnologias y Librerias
+Las tecnologias que se utilizaron fueron las siguientes:
 
+ 
+ |Tecnologia | Motivo  |
+ |:---------:|:-------:|
+ |`Typescript`| Lenguaje utilizado para programar el bot |
+ |`Axios`    | Libreria para consumir la api de OpenWeatherMap| 
+ |`LangGraph`| Libreria utilizada para estructurar el modelo del asistente|
+ |`Express`  | Framework para construir la api del bot|
 
+ ### Modelo de Grafo
+A continuacion se muestra el diagrama de grafo que expone la forma en la que se penso el Asistente de Viajes. 
 
-
-
-
+![alt text](asistente-de-viajes.drawio.png)
