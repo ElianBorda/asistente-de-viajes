@@ -1,10 +1,10 @@
 # Asistente de Viajes
 
-Para la persona con poco tiempo quienes quieran organizarce para realizar un viaje, el Asistente de Viajes es un bot con inteligencia artificial que te ayuda a responder consultas sobre destinos, sus climas y recomendación de equipaje. Diferente a otros bots cuyo único trabajo es trabajar solo con apis y sin respuesta en lenguaje humano. 
+Para la persona con poco tiempo quienes quieran organizarce para realizar un viaje, el Asistente de Viajes es un bot con inteligencia artificial que te ayuda a responder consultas sobre destinos, sus climas y recomendación de equipaje. Diferente a otros bots cuyo único trabajo es trabajar solo con APIs y sin respuesta en lenguaje humano. 
 
 ## CONTENIDO
 
-- [Características únicas](#caracteristicas-unicas)
+- [Características únicas](#características-únicas)
 - [Empezar a utilizar](#empezar-a-utilizar)
     - [¿Dónde probar la API?](#dónde-probar-la-api)
     - [¿Cómo se utiliza?](#cómo-se-utiliza)
@@ -21,11 +21,11 @@ Para la persona con poco tiempo quienes quieran organizarce para realizar un via
 
 ## Características únicas 
 1. **Respuestas conversacionales**
-    - Trabaja con el modelo de LLM `gpt-4o-mini-2024-07-18` para enternder preguntas coloquiales y responder de forma rapida, precisa y amigable.
+    - Trabaja con el modelo de LLM `gpt-4o-mini-2024-07-18` para entender preguntas coloquiales y responder de forma rapida, precisa y amigable.
 2. **Clima en tiempo real** 
-    - Integra la api de OpenWeatherMap y la presenta de forma amigable.
+    - Integra la API de OpenWeatherMap y la presenta de forma amigable.
 3. **Seguimiento contextual**
-    - Puede manejar preguntas adicionales sin perder el hilo de la conversacion.
+    - Puede manejar preguntas adicionales sin perder el hilo de la conversación.
     - Te responde con datos concretos y estructurados.
     - Si le preguntas de temas que exceden su objetivo, para y te pide que le consultes de temas que conoce.
  
@@ -56,8 +56,8 @@ Para trabajar con la api de asistente de viajes, se le debe enviar un body con e
 ### Utilizar el bot en local
 Antes de utilizar el asistente en tu maquina tenes que tener en cuenta los siguientes prerrequisitos:
     
-1. Tener instalado [Node.js]() y [Git]().
-2. Tener una ApiKey de [OpenAI]() y [OpenWeatherMap]().
+1. Tener instalado [Node.js](https://nodejs.org/es) y [Git](https://git-scm.com/).
+2. Tener una ApiKey de [OpenAI](https://openai.com/) y [OpenWeatherMap](https://openweathermap.org/).
 
 Una ves conseguidos los prerrequisitos toca clonar el repositorio de la siguiente manera:
 ```sh
@@ -105,17 +105,17 @@ Para cambiar el hilo de conversación se utiliza query params en la url `https:/
     https://asistente-de-viajes.vercel.app/api/chat?thread_id=<unId>
 ```
 **Realizamos el ejemplo en Postman:**
-![alt text](image-10.png)
-![alt text](image-9.png)
+![alt text](imgs/image-10.png)
+![alt text](imgs/image-9.png)
 
 Le preguntamos como me llamo: 
-![alt text](image-14.png)
-![alt text](image-13.png)
+![alt text](imgs/image-14.png)
+![alt text](imgs/image-13.png)
 
 Ahora cambiamos el hilo de conversación:
 
-![alt text](image-11.png)
-![alt text](image-12.png)
+![alt text](imgs/image-11.png)
+![alt text](imgs/image-12.png)
 
 
 ### Obtener el clima de una ubicacion dada una fecha.
@@ -125,17 +125,17 @@ Gracias a la Api de OpenWeatherMap puedo consultar el clima de una fecha dada.
 El asistente conoce el año, mes, dia y horario actual, por lo que no es de suma necesidad pasarle una fecha. A partir de una cantidad de dias y teniendo en cuenta el dia actual, puede determinar la fecha solicitada. 
 ![alt text](imgs/image-8.png)
 ## Tecnologias y Librerias
-Las tecnologias que se utilizaron fueron las siguientes:
+Las tecnologías que se utilizaron fueron las siguientes:
 
  
  |Tecnologia | Motivo  |
  |:---------:|:-------:|
- |`Typescript`| Lenguaje utilizado para programar el bot |
- |`Axios`    | Libreria para consumir la api de OpenWeatherMap| 
- |`LangGraph`| Libreria utilizada para estructurar el modelo del asistente|
- |`Express`  | Framework para construir la api del bot|
+ |`Typescript`| Lenguaje utilizado para programar el Bot |
+ |`Axios`    | Librería para consumir la API de OpenWeatherMap| 
+ |`LangGraph`| Librería utilizada para estructurar el modelo del asistente|
+ |`Express`  | Framework para construir la API del Bot|
 
  ### Modelo de Grafo
-A continuacion se muestra el diagrama de grafo que expone la forma en la que se penso el Asistente de Viajes. 
+A continuación se muestra el diagrama de grafo que expone la forma en la que se pensó el Asistente de Viajes. 
 
 ![alt text](imgs/asistente-de-viajes.drawio.png)

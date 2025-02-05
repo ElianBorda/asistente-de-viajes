@@ -2,6 +2,11 @@ import { ChatOpenAI } from "@langchain/openai";
 import { State, Update } from "../../graph.js";
 import { z } from "zod";
 
+/**
+ * PROPOSITO: Procesar la informacion recibida a traves de los nodos para identificar si la consulta tiene una fecha o menciona un numero de dias, y retornar el tipo.
+ * @param state Estado global actual
+ * @returns respuesta del bot
+ */
 export const processClimate = async (state: State): Promise<Update> => {
 
     const llm = new ChatOpenAI({

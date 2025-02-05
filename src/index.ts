@@ -16,6 +16,9 @@ const rl = readline.createInterface({
 
 const graph = createGraph()
 
+/**
+ * Inicia la conversación con el bot y muestra las respuestas del bot en consola.
+ */
 async function chat() {
   while (true) {
     const userInput = await rl.question("\nTú: ");

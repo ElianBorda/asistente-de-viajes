@@ -13,6 +13,9 @@ import { BaseMessage } from "@langchain/core/messages";
 import { processResponse } from "./bot/nodes/processResponse.js";
 import { processMemory } from "./bot/nodes/processMemory.js";
 
+/**
+ * Tipos de mensajes que puede distinguir el bot
+ */
 type MessegeType = 
     | "Destination"
     | "Luggage"
@@ -20,19 +23,32 @@ type MessegeType =
     | "Memory"
     | "Other";
 
+/**
+ * Tipos de fechas que puede distingir el bot
+ *  */    
 type EstimationDate = 
     | "Date"
-    | "Numday" // numero de dias
+    | "Numday" 
     
+/**
+ * Información de un mensaje
+ *  */ 
 type Information = {
     message: string; 
 };
 
+/**
+ * Descripcion del destino de un viaje
+ *  */
 type Destination = {
     userId?: string; 
     description: string; 
 }
 
+
+/**
+ * Descripcion del equipaje de un viaje
+ */
 type Luggage = {
     userId?: string;
     destination: string;
@@ -40,6 +56,9 @@ type Luggage = {
     recommendation: string;
 }
 
+/**
+ * Clima de un lugar
+ */
 type Climate = {
     userId?: string;
     location: string;
@@ -50,7 +69,9 @@ type Climate = {
 }
 
 
-
+/**
+ * Anotaciones de los nodos del grafo (Inicializacion del grafo)
+ */
 const graphAnotation = Annotation.Root({
     message: Annotation<BaseMessage[]>({ reducer: (x, y) => x.concat(y), }),
     messegeType: Annotation<MessegeType>(),
@@ -64,7 +85,12 @@ const graphAnotation = Annotation.Root({
 export type State = typeof graphAnotation.State;
 export type Update = typeof graphAnotation.Update;
 
+/**
+ * Retorna un grafo con los nodos y aristas necesarios para el bot
+ * @returns Any
+ */
 export function createGraph() {
+    
     const workflow = new StateGraph(graphAnotation)
         .addNode("process-message", processMessage)
         .addNode("process-destination", processDestination)

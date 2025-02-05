@@ -2,8 +2,13 @@ import { ChatOpenAI } from "@langchain/openai";
 import { z } from "zod";
 import { State, Update } from "../../graph.js";
 
+/**
+ * PROPOSITO: Procesar la informacion recibida a traves de los nodos para generar una respuesta relacionada con el destino del usuario. 
+ * @param state Estado global actual
+ * @returns respuesta del bot
+ */
 export const processDestination = async (state: State): Promise<Update> => {
-    //TODO esta funcion retorna informacion sobre el destino.
+    
 
     const llm = new ChatOpenAI({model: "gpt-4o-mini-2024-07-18", temperature: 0 });
     const structuredLlm = llm.withStructuredOutput(z.object({

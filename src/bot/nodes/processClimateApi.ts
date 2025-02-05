@@ -3,6 +3,11 @@ import { getClimate } from "../../service/Api.js";
 import { State, Update } from "../../graph.js";
 import { z } from "zod";
 
+/**
+ * PROPOSITO: Procesar la informacion recibida a traves de los nodos para generar una respuesta relacionada con el clima del lugar, gracias a la API de clima.
+ * @param state Estado global actual
+ * @returns respuesta del bot
+ */
 export const processClimateApi = async (state: State): Promise<Update> => {
     
     const llm = new ChatOpenAI({ model: "gpt-4o-mini-2024-07-18", temperature: 0, });

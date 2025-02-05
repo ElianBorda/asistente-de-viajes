@@ -3,6 +3,12 @@ import { State, Update } from "../../graph.js"
 import { z } from "zod";
 import { AIMessage } from "@langchain/core/messages";
 
+
+/**
+ * PROPOSITO: Procesar la informacion recibida a traves de los nodos del grafo para aclarar que el bot solo puede responder preguntas relacionadas con asistencia de viaje
+ * @param state Estado global actual
+ * @returns respuesta del bot
+ */
 export const processOther = async (state: State): Promise<Update> => {
     const llm = new ChatOpenAI({
         model: "gpt-4o-mini-2024-07-18",

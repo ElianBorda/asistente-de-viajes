@@ -3,6 +3,11 @@ import { State, Update } from "../../graph.js";
 import { z } from "zod";
 import { AIMessage } from "@langchain/core/messages";
 
+/**
+ * PROPOSITO: Procesar la informacion recibida a traves de los nodos para generar una respuesta relacionada con el equipaje del usuario. 
+ * @param state Estado global actual
+ * @returns respuesta del bot
+ */
 export const processLuggage = async (state: State): Promise<Update> => {
     //TODO esta funcion retorna informacion sobre el equipaje
 

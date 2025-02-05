@@ -4,6 +4,13 @@ dotenv.config();
 
 axios.defaults.baseURL = process.env.API_OPENWHATER;
 
+/**
+ * Obtiene el clima de un lugar
+ * @param lon Longitud de la ubicación
+ * @param lat Latitud de la ubicación
+ * @param date Fecha de la consulta
+ * @returns Lista de climas de la ubicación en formato JSON
+ */
 export const getClimate = async (lon: number, lat:number, date?: string) => 
         axios.get(`/forecast?appid=${process.env.API_OPENWHATER_KEY}&lat=${lat}&lon=${lon}&units=imperial&lang=es`)
              .then(({data}) => {

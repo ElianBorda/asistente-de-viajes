@@ -3,6 +3,11 @@ import { State, Update } from "../../graph.js"
 import { z } from "zod";
 import { AIMessage } from "@langchain/core/messages";
 
+/**
+ * PROPOSITO: Procesar la informacion recibida a traves de los nodos del grafo para generar una respuesta amigable y natural
+ * @param state estado global actual
+ * @returns Respuesta del bot
+ */
 export const processResponse = async (state: State): Promise<Update> => {
 
     const llm = new ChatOpenAI({ model: "gpt-4o-mini-2024-07-18", temperature: 0 });
