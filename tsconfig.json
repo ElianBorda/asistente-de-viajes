@@ -10,6 +10,6 @@
       "moduleResolution": "NodeNext",
       "lib": ["ES2021.String"],
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "src/app.ts"],
     "exclude": ["node_modules"]
 }

@@ -1,11 +1,14 @@
 import express, { Application, Request, Response } from 'express';
 import Joi from 'joi';
+import { getResponseBot } from './utils/getResponseBot.js';
+import { createGraph } from './graph.js';
 
 const app: Application = express();
 const port = process.env.PORT || 3000;
 
 
 app.use(express.json());
+const graph = createGraph()
 
 const schema = Joi.object({
   message: Joi.string().required().messages({
@@ -21,7 +24,10 @@ app.post('/api/chat', (req, res) => {
   if (error) {
     res.status(400).json({ error: error.message });
   }
-  res.send(`Mensaje recibido: ${req.body.message}`);
+
+  getResponseBot(graph, value.message).then((response) => {
+    res.send(response)
+  })
   
 });
 
