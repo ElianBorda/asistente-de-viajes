@@ -8,8 +8,5 @@ dotenv.config();
 
 const graph = createGraph()
 
-const res = await graph.invoke({
-    message: {
-        message: "¿Que ropa deberia llevar a brasil?"
-    },
-})
+const res = await graph.invoke({ message: { message: "Alguna sugerencia para mi viaje a la playa?" },})
+console.log(res)

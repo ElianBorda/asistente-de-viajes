@@ -21,6 +21,7 @@
     "@langchain/langgraph": "^0.2.44",
     "@langchain/openai": "^0.4.2",
     "@xenova/transformers": "^2.17.2",
+    "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "g4f": "^1.4.6",
