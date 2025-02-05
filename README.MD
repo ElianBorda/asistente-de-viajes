@@ -4,7 +4,7 @@ Para la persona con poco tiempo quienes quieran organizarce para realizar un via
 
 ## CONTENIDO
 
-- [Caracteristicas únicas](#caracteristicas-unicas)
+- [Características únicas](#caracteristicas-unicas)
 - [Empezar a utilizar](#empezar-a-utilizar)
     - [¿Dónde probar la API?](#dónde-probar-la-api)
     - [¿Cómo se utiliza?](#cómo-se-utiliza)
@@ -12,14 +12,14 @@ Para la persona con poco tiempo quienes quieran organizarce para realizar un via
     - [Chatear con el bot desde terminal](#chatear-con-el-bot-desde-terminal)
 - [Funcionalidades](#funcionalidades)
     - [Persistencia de hilo de conversación](#persistencia-de-hilo-de-conversación).
-    - [Cambiar de hilo de conversación](#cambiar-de-hilo-de-conversación)
+    - [Cambiar el hilo de conversación](#cambiar-el-hilo-de-conversación)
     - [Obtener el clima de una ubicación dada una fecha](#obtener-el-clima-de-una-ubicacion-dada-una-fecha).
     - [Obtener el clima de una ubicación dado una cantidad de dias](#obtener-el-clima-de-una-ubicación-dado-una-cantidad-de-dias)
 - [Tecnologias y Librerias](#tecnologias-y-librerias)
     - [Modelo de Grafo](#modelo-de-grafo)
 
 
-## Caracteristicas unicas 
+## Características únicas 
 1. **Respuestas conversacionales**
     - Trabaja con el modelo de LLM `gpt-4o-mini-2024-07-18` para enternder preguntas coloquiales y responder de forma rapida, precisa y amigable.
 2. **Clima en tiempo real** 
@@ -99,7 +99,24 @@ A continuacion se expondra todas las funcionalidades que vuelven particular al a
 ### Persistencia de hilo de conversación
 El Asistente de Viajes tiene la capacidad de persistir el hilo de conversación, esto quiere decir que recuerda los momentos de cada consulta y respuesta que se genero. 
 ![alt text](imgs/image-6.png)
-### Cambiar de hilo de conversación
+### Cambiar el hilo de conversación
+Para cambiar el hilo de conversación se utiliza query params en la url `https://asistente-de-viajes.vercel.app/api/chat` de la siguiente forma: 
+```js
+    https://asistente-de-viajes.vercel.app/api/chat?thread_id=<unId>
+```
+**Realizamos el ejemplo en Postman:**
+![alt text](image-10.png)
+![alt text](image-9.png)
+
+Le preguntamos como me llamo: 
+![alt text](image-14.png)
+![alt text](image-13.png)
+
+Ahora cambiamos el hilo de conversación:
+
+![alt text](image-11.png)
+![alt text](image-12.png)
+
 
 ### Obtener el clima de una ubicacion dada una fecha.
 Gracias a la Api de OpenWeatherMap puedo consultar el clima de una fecha dada.
