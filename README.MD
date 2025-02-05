@@ -1,22 +1,22 @@
 # Asistente de Viajes
 
-Para la persona con poco tiempo quienes quieran organizarce para realizar un viaje, el Asistente de Viajes es un bot con inteligencia artificial que te ayuda a responder consultas sobre destinos, sus climas y recomendacion de equipaje. Diferente a otros bots cuyo unico trabajo es trabajar solo con apis y sin respuesta en lenguaje humano. 
+Para la persona con poco tiempo quienes quieran organizarce para realizar un viaje, el Asistente de Viajes es un bot con inteligencia artificial que te ayuda a responder consultas sobre destinos, sus climas y recomendación de equipaje. Diferente a otros bots cuyo único trabajo es trabajar solo con apis y sin respuesta en lenguaje humano. 
 
 ## CONTENIDO
 
 - [Caracteristicas únicas](#caracteristicas-unicas)
 - [Empezar a utilizar](#empezar-a-utilizar)
-    - [¿Dónde probar la api?](#donde-probar-la-api)
-    - [¿Cómo se utiliza?](#como-se-utiliza)
+    - [¿Dónde probar la API?](#dónde-probar-la-api)
+    - [¿Cómo se utiliza?](#cómo-se-utiliza)
     - [Utilizar bot en local](#utilizar-el-bot-en-local)
     - [Chatear con el bot desde terminal](#chatear-con-el-bot-desde-terminal)
-- [Pruebas funcionales](#pruebas-funcionales)
-    - Persistencia de hilo de conversación.
+- [Funcionalidades](#funcionalidades)
+    - [Persistencia de hilo de conversación](#persistencia-de-hilo-de-conversación).
     - Cambiar de hilo de conversación.
-    - Obtener el clima de una ubicacion dada una fecha.
-    - Obtener el clima de una ubicación dado una cantidad de dias
-- Tecnologias y Librerias
-    - Modelo de Grafo
+    - [Obtener el clima de una ubicación dada una fecha](#obtener-el-clima-de-una-ubicacion-dada-una-fecha).
+    - [Obtener el clima de una ubicación dado una cantidad de dias](#obtener-el-clima-de-una-ubicación-dado-una-cantidad-de-dias)
+- [Tecnologias y Librerias](#tecnologias-y-librerias)
+    - [Modelo de Grafo](#modelo-de-grafo)
 
 
 ## Caracteristicas unicas 
@@ -33,9 +33,9 @@ Para la persona con poco tiempo quienes quieran organizarce para realizar un via
 El bot se puede utilizar tanto local, como desde la siguiente api:
  `https://asistente-de-viajes.vercel.app/api/chat`
 
-### ¿Donde probar la api?
+### ¿Dónde probar la API?
 Para testear la api se pueden utilizar herramientas como [Insomnia](https://insomnia.rest/) o [Postman](https://www.postman.com/). 
-### ¿Como se utiliza?
+### ¿Cómo se utiliza?
 Para trabajar con la api de asistente de viajes, se le debe enviar un body con el siguiente formato.
 
 ```js
@@ -51,8 +51,8 @@ Para trabajar con la api de asistente de viajes, se le debe enviar un body con e
     "message": "¿Cómo estará el clima en Buenos Aires, Argentina, dentro de dos días?"
 }
 ```
-![alt text](imgs/image-1.png)
-![alt text](image.png)
+![alt text](imgs/img.png)
+![alt text](imgs/image.png)
 ### Utilizar el bot en local
 Antes de utilizar el asistente en tu maquina tenes que tener en cuenta los siguientes prerrequisitos:
     
@@ -77,11 +77,11 @@ npx tsc
 node dist/app.js
 ``` 
 Una ves realizado el ultimo paso, les aparecera el mensaje `Servidor corriendo en http://localhost:3000`:
- ![alt text](image-1.png)
+ ![alt text](imgs/image-1.png)
 
 **Muestra:**
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](imgs/image-2.png)
+![alt text](imgs/image-3.png)
 
 ### Chatear con el bot desde terminal
 Si instalas el bot local tenes la opcion de **chatear con el asistente en tiempo real**. Solamente se necesita escribir el siguiente comando:
@@ -91,20 +91,20 @@ npx tsx src/index.ts
 ```
 
 **IMAGENES ESCRIBIENDO POR CHAT CON EL ASISTENTE:**
-![alt text](image-4.png)
-![alt text](image-5.png)
+![alt text](imgs/image-4.png)
+![alt text](imgs/image-5.png)
 
 ## Funcionalidades
 A continuacion se expondra todas las funcionalidades que vuelven particular al asistente. Por comodidad se utilizara la terminal. 
 ### Persistencia de hilo de conversación
 El Asistente de Viajes tiene la capacidad de persistir el hilo de conversación, esto quiere decir que recuerda los momentos de cada consulta y respuesta que se genero. 
-![alt text](image-6.png)
+![alt text](imgs/image-6.png)
 ### Obtener el clima de una ubicacion dada una fecha.
 Gracias a la Api de OpenWeatherMap puedo consultar el clima de una fecha dada.
-![alt text](image-7.png)
+![alt text](imgs/image-7.png)
 ### Obtener el clima de una ubicación dado una cantidad de dias
 El asistente conoce el año, mes, dia y horario actual, por lo que no es de suma necesidad pasarle una fecha. A partir de una cantidad de dias y teniendo en cuenta el dia actual, puede determinar la fecha solicitada. 
-![alt text](image-8.png)
+![alt text](imgs/image-8.png)
 ## Tecnologias y Librerias
 Las tecnologias que se utilizaron fueron las siguientes:
 
@@ -119,4 +119,4 @@ Las tecnologias que se utilizaron fueron las siguientes:
  ### Modelo de Grafo
 A continuacion se muestra el diagrama de grafo que expone la forma en la que se penso el Asistente de Viajes. 
 
-![alt text](asistente-de-viajes.drawio.png)
+![alt text](imgs/asistente-de-viajes.drawio.png)
