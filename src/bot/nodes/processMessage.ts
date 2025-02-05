@@ -24,8 +24,6 @@ export const processMessage = async (state: State): Promise<Update> => {
         state.message[state.message.length - 1],
     ])
     
-    console.log("messageType: ", state.messegeType)
-
     return {
         messegeType: state.messegeType === res.type ? "Memory" : res.type
     }

@@ -67,14 +67,15 @@ Una ves realizado el ultimo paso, les aparecera el mensaje `Servidor corriendo e
 ![alt text](image-3.png)
 
 ### Chatear con el bot
-Si instalas el bot local tenes la opcion de **chatear con el asistente en tiempo real**. Lo unico que se necesita es escribir el siguiente comando:
+Si instalas el bot local tenes la opcion de **chatear con el asistente en tiempo real**. Solamente se necesita escribir el siguiente comando:
 
 ```sh
 npx tsx src/index.ts
 ```
 
-**VIDEO DE MUESTRA:**
-
+**IMAGENES ESCRIBIENDO POR CHAT CON EL ASISTENTE:**
+![alt text](image-4.png)
+![alt text](image-5.png)
 
 
 
