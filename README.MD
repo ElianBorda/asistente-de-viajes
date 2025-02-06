@@ -30,7 +30,7 @@ Para la persona con poco tiempo quienes quieran organizarce para realizar un via
     - Si le preguntas de temas que exceden su objetivo, te pide que le consultes de temas que conoce.
  
 ## Empezar a utilizar 
-El bot se puede utilizar tanto local, como desde la siguiente api:
+El bot se puede utilizar tanto local, como desde la siguiente API publica:
  `https://asistente-de-viajes.vercel.app/api/chat`
 
 ### ¿Dónde probar la API?
